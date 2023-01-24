@@ -5,4 +5,16 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
+# Cargo will default `name` to `package.name`, which is what we want.
+[lib]
+path = "src/lib.rs"
+
+# When we go outside the auto-generated is better to show all the characteristics.
+# We can only have one library in a project, but we can have multiple binaries!
+[[bin]]
+path = "src/main.rs"
+name = "zero2prod"
+
 [dependencies]
+actix-web = "4"
+tokio = { version="1", features=["macros","rt-multi-thread"] }
